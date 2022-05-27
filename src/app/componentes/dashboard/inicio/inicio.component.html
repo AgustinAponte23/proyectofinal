@@ -1,0 +1,51 @@
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z3">
+     
+    <!--"Posición"-->
+    <ng-container matColumnDef="posicion">
+      <th mat-header-cell *matHeaderCellDef> Posición </th>
+      <td mat-cell *matCellDef="let element"> {{element.posicion}}  </td>
+    </ng-container>
+  
+    <!-- Nombre y apellido -->
+    <ng-container matColumnDef="Nombre/apellido">
+      <th class="text-center" mat-header-cell *matHeaderCellDef> Nombre  </th>
+      <td class="text-center" mat-cell *matCellDef="let element"> {{element | nombreapellido}} </td> <!--"Pipe con apellido"-->
+    </ng-container>
+  
+    <!-- Curso -->
+    <ng-container matColumnDef="Curso">
+      <th class="text-center" mat-header-cell *matHeaderCellDef> Curso </th>
+      <td class="text-center" mat-cell *matCellDef="let element"> {{element.curso}} </td>
+    </ng-container>
+
+    <!-- Inscripción -->
+    <ng-container matColumnDef="Inscripción">
+      <th class="text-center" mat-header-cell *matHeaderCellDef> Inscripción </th>
+      <td class="text-center" mat-cell *matCellDef="let element"> {{element.inscripcion}} </td>
+    </ng-container>
+
+    <!--"Acciones"-->
+    <ng-container matColumnDef="Acciones">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td class="acciones" mat-cell *matCellDef="let element; let i = index"> 
+          
+           
+              <a routerLink="crear-alumno" class="cursor mx-2" matTooltip="Agregar alumno">
+                <mat-icon class="text-secondary">person_add</mat-icon>
+            </a>
+            
+            <a [routerLink]="[i, 'editar-alumno']" class="cursor mx-2"  matTooltip="Editar alumno">
+                <mat-icon class="text-primary">edit</mat-icon>
+            </a>
+            <a class="cursor" (click)="eliminarAlumno(i)"  matTooltip="Eliminar alumno">
+                <mat-icon class="text-danger">delete</mat-icon>
+            </a>
+        </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  

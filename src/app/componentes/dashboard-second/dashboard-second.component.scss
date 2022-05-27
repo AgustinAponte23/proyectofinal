@@ -1,0 +1,27 @@
+.box{
+    height: 652px;
+    display: grid;
+    grid-template-areas: 
+    'header header header'
+    'aside inicio inicio'
+    'aside inicio inicio'
+    ;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 10% 80% 20%;
+  }
+  
+  .toolbar{
+      grid-area: header;
+  }
+  
+  .sidenav{
+      grid-area: aside;
+      /*background-color: coral;*/
+      height: 100%;
+  }
+  
+  .inicio{
+      /*background-color: brown;*/
+      grid-area: inicio;
+      margin-left: 50px;
+  }

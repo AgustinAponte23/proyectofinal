@@ -1,0 +1,41 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+    <!-- "Encabezado" -->
+    <div class="fadeIn first">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="text-center my-5">​ Bienvenido de nuevo✋​</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- "Formulario" -->
+    <form [formGroup]="formulario" (ngSubmit)="submit()">
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario" required formControlName="nombre">
+      <input type="password" id="password" class="fadeIn third" name="contraseña" placeholder="Contraseña" required formControlName="contraseña">
+      <input type="submit" class="fadeIn fourth" [disabled]="formulario.invalid" value="Iniciar sesión">
+    </form>
+    
+    <!-- "Crear cuenta" -->
+    <div id="formFooter">
+      <a class="underlineHover" routerLink="/crear-cuenta">Crea tu cuenta</a>
+    </div>
+
+  </div>
+  
+  <!-- "Alerta usuario" -->
+  <div *ngIf="formulario.get('nombre')?.errors?.['required']" class="alert alert-info my-3" role="alert">
+    Debe introducir un usuario
+  </div>
+  
+  <!-- "Alerta contraseña" -->
+  <div *ngIf="formulario.get('contraseña')?.errors?.['minlength']" class="alert alert-info my-3" role="alert">
+    La contraseña debe tener más caracteres 
+  </div>
+  
+  
+    
+</div>

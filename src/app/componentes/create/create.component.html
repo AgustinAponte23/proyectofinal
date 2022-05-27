@@ -1,0 +1,33 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+  
+      <!-- "Encabezado" -->
+      <div class="fadeIn first">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="text-center my-5">​ Crea tu cuenta GRATIS​</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  
+      <!-- "Login" -->
+      <form (submit)="onSubmit()">
+        <input type="text" id="login" class="fadeIn second" name="login" placeholder=" Nuevo usuario" required>
+        <input type="password" id="password" class="fadeIn third" name="login" placeholder="Nueva contraseña" required>
+        <input type="submit" class="fadeIn fourth" value="Crear cuenta">
+      </form>
+  
+      <!-- "Iniciar" -->
+      <div id="formFooter">
+        <a class="underlineHover" routerLink="/iniciar-sesion">Iniciar sesión</a>
+      </div>
+      
+    </div>
+
+    
+
+  </div>
+  

@@ -1,0 +1,56 @@
+.box{
+    height: 652px;
+    display: grid;
+    grid-template-areas: 
+    'header header header'
+    'aside inicio inicio'
+    'aside inicio inicio'
+    ;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 10% 80% 20%;
+  }
+  
+  .toolbar{
+      grid-area: header;
+  }
+  
+  .sidenav{
+      grid-area: aside;
+      /*background-color: coral;*/
+      height: 100%;
+  }
+  
+  .contenido{
+      /*background-color: brown;*/
+      grid-area: inicio;
+      margin-left: 50px;
+  }
+
+  mat-card{
+      height:80%;
+      width:80%;
+      margin-top: 35px;
+  }
+
+  form{
+      margin-top: 30px;
+  }
+
+  .title{
+      margin-top: 30px;
+      margin-bottom: 30px;
+  }
+
+  mat-form-field{
+      width:100%;
+  }
+
+  .basic{
+      width:40%;
+  }
+
+  button{
+      margin-top:20px;
+      margin-left:50px;
+      width: 40%;
+  }

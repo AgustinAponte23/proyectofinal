@@ -1,0 +1,56 @@
+<div class="box">
+
+    <!--"Componentes reutilizados"-->
+    <app-toolbar class="toolbar"></app-toolbar>
+    <app-sidenav class="sidenav"></app-sidenav>
+
+    <!--"Formulario"-->
+    <div class="container contenido">
+        <mat-card>
+            <form [formGroup]="formulario" class="my-3" (ngSubmit)="editarAlumno()">
+    
+                <!--"Encabezado formulario"-->
+                <div class="title">
+
+                    <h3 class="text-center" Aumentar><b>Editar Alumno</b></h3>
+                </div>
+    
+                <!--"Posición"-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Posición</mat-label>
+                    <input matInput placeholder="Ej: Primero" formControlName="posicion">
+                </mat-form-field><br>
+    
+                <!--"Nombre"-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput placeholder="Nombre" formControlName="nombre">
+                </mat-form-field> <br>
+
+                <!--"Apellido"-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput placeholder="Apellido" formControlName="apellido">
+                </mat-form-field> <br>
+    
+                <!--"Curso"-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Curso</mat-label>
+                    <input matInput placeholder="Curso" formControlName="curso">
+                </mat-form-field> <br>
+    
+                <!--"Inscripción"-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Inscripción</mat-label>
+                    <input matInput placeholder="Ej: Marzo" formControlName="inscripcion">
+                </mat-form-field><br>
+    
+                <!--"Botones"-->
+                <button routerLink="../../" class="basic" mat-raised-button>Volver</button>
+                <button type="submit"  mat-raised-button color="primary">Aceptar</button>
+                
+            </form>
+        </mat-card>
+       </div>
+
+</div>
