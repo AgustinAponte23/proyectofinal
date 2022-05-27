@@ -33,11 +33,11 @@ export class AlumnosService {
   }
 
   editarAlumno(alumno : alumnos, index: number){
-    this.listaAlumnos[index].nombre = alumno.posicion
+    this.listaAlumnos[index].posicion = alumno.posicion
       this.listaAlumnos[index].nombre = alumno.nombre
-      this.listaAlumnos[index].nombre = alumno.apellido
-      this.listaAlumnos[index].nombre = alumno.curso
-      this.listaAlumnos[index].nombre = alumno.inscripcion
+      this.listaAlumnos[index].apellido = alumno.apellido
+      this.listaAlumnos[index].curso = alumno.curso
+      this.listaAlumnos[index].inscripcion = alumno.inscripcion
   }
 
 
