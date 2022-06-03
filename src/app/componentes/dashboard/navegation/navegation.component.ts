@@ -1,16 +1,35 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { interval, Observable, Subject } from 'rxjs';
+import { map, shareReplay, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navegation',
   templateUrl: './navegation.component.html',
   styleUrls: ['./navegation.component.scss']
 })
-export class NavegationComponent{
+export class NavegationComponent /*implements OnInit, OnDestroy*/ {
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+
+  /*subject$ = new Subject(); //Primer pipe async
+
+  ngOnInit(): void {
+    this.initInterval();
+  }
+  
+  ngOnDestroy(): void {
+   this.subject$.next(value);
+   this.subject$.complete();
+  }
+
+  initInterval() {
+    const interval$ = interval(1000);
+    interval$.pipe(
+      takeUntil(this.subject$)
+    ).subscribe(s => {})
+  }*/
+
+  isHandset$: Observable<any> = this.breakpointObserver.observe(Breakpoints.Handset) //Segundo pipe async implementado
     .pipe(
       map(result => result.matches),
       shareReplay()
@@ -19,3 +38,15 @@ export class NavegationComponent{
   constructor(private breakpointObserver: BreakpointObserver) {}
 
 }
+
+  
+
+
+
+
+
+
+/*function value(value: any) {
+  throw new Error('Function not implemented.');
+}*/
+
