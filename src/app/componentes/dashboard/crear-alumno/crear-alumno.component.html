@@ -1,54 +1,87 @@
-<div class="box">
-
-    <!--"Componentes reutilizados"-->
-    <app-toolbar class="toolbar"></app-toolbar>
-    <app-sidenav class="sidenav"></app-sidenav>
-
-    <!--"Formulario"-->
+    <!-- "Navegación principio" -->
+    <mat-sidenav-container class="sidenav-container">
+        <mat-sidenav #drawer class="sidenav" fixedInViewport
+            [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+            [mode]="(isHandset$ | async) ? 'over' : 'side'"
+            [opened]="(isHandset$ | async) === false">
+          <mat-nav-list>
+            <a class="text-white" mat-list-item href="#">Inicio</a>
+            <a class="text-white" mat-list-item href="#">Materiales de estudio</a>
+            <a routerLink="../../" class="text-white" mat-list-item href="#">Cerrar sesión</a>
+          </mat-nav-list>
+        </mat-sidenav>
+      
+        <mat-sidenav-content>
+          <mat-toolbar color="primary" class="navbar">
+            <button
+              type="button"
+              aria-label="Toggle sidenav"
+              mat-icon-button
+              (click)="drawer.toggle()"
+              *ngIf="isHandset$ | async">
+              <mat-icon class="text-white" aria-label="Side nav toggle icon">menu_open</mat-icon>
+            </button>
+            <span class="text-white">EduTech</span>
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon class="text-white">account_circle</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Mi perfil</button>
+              <button routerLink="../../" mat-menu-item>Cerrar sesión</button>
+            </mat-menu>
+          </mat-toolbar>
+          <!--"Navegación final" --> 
+          
+          <!--"Formulario"-->
     <div class="container contenido">
-    <mat-card>
-        <form [formGroup]="formulario" class="my-3" (ngSubmit)="agregarAlumno()">
+        <mat-card>
+            <form [formGroup]="formulario" class="my-3" (ngSubmit)="agregarAlumno()">
+    
+                <!--"Encabezado formulario"-->
+                <div class="title">
+                    <h3 class="text-center" Aumentar><b>Agregar Alumno</b></h3>
+                </div>
+    
+                <!--"Posición"-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Posición</mat-label>
+                    <input matInput placeholder="Ej: Primero" formControlName="posicion">
+                </mat-form-field><br>
+    
+                <!--"Nombre"-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput placeholder="Nombre" formControlName="nombre">
+                </mat-form-field> <br>
+    
+                <!--"Apellido"-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput placeholder="Apellido" formControlName="apellido">
+                </mat-form-field> <br>
+    
+                <!--"Curso"-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Curso</mat-label>
+                    <input matInput placeholder="Curso" formControlName="curso">
+                </mat-form-field> <br>
+    
+                <!--"Inscripción"-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Inscripción</mat-label>
+                    <input matInput placeholder="Ej: Marzo" formControlName="inscripcion">
+                </mat-form-field><br>
+    
+                <!--"Botones"-->
+                <button routerLink="../" class="basic" mat-raised-button>Volver</button>
+                <button type="submit" class="secondary" [disabled]="formulario.invalid" mat-raised-button color="primary">Aceptar</button>
+            </form>
+        </mat-card>
+       </div>
 
-            <!--"Encabezado formulario"-->
-            <div class="title">
-                <h3 class="text-center" Aumentar><b>Agregar Alumno</b></h3>
-            </div>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
 
-            <!--"Posición"-->
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Posición</mat-label>
-                <input matInput placeholder="Ej: Primero" formControlName="posicion">
-            </mat-form-field><br>
+    
 
-            <!--"Nombre"-->
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Nombre</mat-label>
-                <input matInput placeholder="Nombre" formControlName="nombre">
-            </mat-form-field> <br>
 
-            <!--"Apellido"-->
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Apellido</mat-label>
-                <input matInput placeholder="Apellido" formControlName="apellido">
-            </mat-form-field> <br>
-
-            <!--"Curso"-->
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Curso</mat-label>
-                <input matInput placeholder="Curso" formControlName="curso">
-            </mat-form-field> <br>
-
-            <!--"Inscripción"-->
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Inscripción</mat-label>
-                <input matInput placeholder="Ej: Marzo" formControlName="inscripcion">
-            </mat-form-field><br>
-
-            <!--"Botones"-->
-            <button routerLink="../" class="basic" mat-raised-button>Volver</button>
-            <button type="submit" [disabled]="formulario.invalid" mat-raised-button color="primary">Aceptar</button>
-        </form>
-    </mat-card>
-   </div>
-
-</div>

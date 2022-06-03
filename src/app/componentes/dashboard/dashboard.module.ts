@@ -5,9 +5,10 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { InicioComponent } from './inicio/inicio.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
 import { CrearAlumnoComponent } from './crear-alumno/crear-alumno.component';
+import { NavegationComponent } from './navegation/navegation.component';
+import { FooterComponent } from './footer/footer.component';
+
 
 //? "Angular material" 
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -21,19 +22,23 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EditarAlumnoComponent } from './editar-alumno/editar-alumno.component';
 import { PipesPipe } from '../plus/pipes/pipes.pipe';
 import { AumentarDirective } from '../plus/directivas/aumentar.directive';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
+    NavegationComponent,
     InicioComponent,
-    ToolbarComponent,
-    SidenavComponent,
     CrearAlumnoComponent,
     EditarAlumnoComponent,
     PipesPipe,
-    AumentarDirective
+    AumentarDirective,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -45,7 +50,10 @@ import { AumentarDirective } from '../plus/directivas/aumentar.directive';
     MatCardModule,
     MatInputModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSidenavModule,
+    MatListModule,
+    MatMenuModule
   ]
 })
 export class DashboardModule { }

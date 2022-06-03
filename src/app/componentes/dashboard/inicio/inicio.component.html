@@ -29,23 +29,23 @@
     <ng-container matColumnDef="Acciones">
         <th mat-header-cell *matHeaderCellDef> </th>
         <td class="acciones" mat-cell *matCellDef="let element; let i = index"> 
-          
-           
-              <a routerLink="crear-alumno" class="cursor mx-2" matTooltip="Agregar alumno">
-                <mat-icon class="text-secondary">person_add</mat-icon>
-            </a>
+          <a routerLink="crear-alumno" class="cursor mx-2" matTooltip="Agregar alumno">
+            <mat-icon class="text-secondary">person_add</mat-icon>
+          </a>
             
-            <a [routerLink]="[i, 'editar-alumno']" class="cursor mx-2"  matTooltip="Editar alumno">
-                <mat-icon class="text-primary">edit</mat-icon>
-            </a>
-            <a class="cursor" (click)="eliminarAlumno(i)"  matTooltip="Eliminar alumno">
-                <mat-icon class="text-danger">delete</mat-icon>
-            </a>
+          <a [routerLink]="[i, 'editar-alumno']" class="cursor mx-2"  matTooltip="Editar alumno">
+            <mat-icon class="text-primary">edit</mat-icon>
+          </a>
+          
+          <a class="cursor" (click)="eliminarAlumno(i)"  matTooltip="Eliminar alumno">
+            <mat-icon class="text-danger">delete</mat-icon>
+          </a>
         </td>
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  <app-footer></app-footer>
   
   

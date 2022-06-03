@@ -1,6 +1,6 @@
 table{
     width: 97%;
-    margin-top: 30px;
+    margin: auto;
 }
 
 th{
@@ -13,4 +13,10 @@ th{
 
 .cursor{
     cursor: pointer;
+}
+
+app-footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }

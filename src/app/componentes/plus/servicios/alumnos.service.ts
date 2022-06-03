@@ -13,7 +13,8 @@ export class AlumnosService {
     { posicion: 'Cuarto' , nombre: 'Gonzalo', apellido: 'Zapata', curso: 'Git', inscripcion: 'Febrero'},
   ];
 
-  constructor() { }
+  constructor() { 
+  }
 
   getAlumnos(){
     return this.listaAlumnos.slice();
@@ -34,11 +35,13 @@ export class AlumnosService {
 
   editarAlumno(alumno : alumnos, index: number){
     this.listaAlumnos[index].posicion = alumno.posicion
-      this.listaAlumnos[index].nombre = alumno.nombre
-      this.listaAlumnos[index].apellido = alumno.apellido
-      this.listaAlumnos[index].curso = alumno.curso
-      this.listaAlumnos[index].inscripcion = alumno.inscripcion
+    this.listaAlumnos[index].nombre = alumno.nombre
+    this.listaAlumnos[index].apellido = alumno.apellido
+    this.listaAlumnos[index].curso = alumno.curso
+    this.listaAlumnos[index].inscripcion = alumno.inscripcion
   }
+
+  
 
 
   

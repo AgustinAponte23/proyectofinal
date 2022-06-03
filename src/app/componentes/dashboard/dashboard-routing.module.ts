@@ -4,11 +4,10 @@ import { LoginComponent } from '../login/login.component';
 import { CrearAlumnoComponent } from './crear-alumno/crear-alumno.component';
 import { DashboardComponent } from './dashboard.component';
 import { EditarAlumnoComponent } from './editar-alumno/editar-alumno.component';
-import { InicioComponent } from './inicio/inicio.component';
 
 const routes: Routes = [
   {
-    path: '' , component: DashboardComponent
+    path: '' , component: DashboardComponent,
   },
   {
     path: 'iniciar-sesion' , component: LoginComponent

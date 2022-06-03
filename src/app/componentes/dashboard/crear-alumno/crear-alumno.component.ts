@@ -4,6 +4,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { alumnos } from '../../plus/interfaces/alumnos';
 import { AlumnosService } from '../../plus/servicios/alumnos.service';
 import { Router } from '@angular/router';
+import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-crear-alumno',
@@ -12,9 +15,15 @@ import { Router } from '@angular/router';
 })
 export class CrearAlumnoComponent implements OnInit {
 
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
+
   formulario: FormGroup;
 
-  constructor(private fb: FormBuilder, private _alumnosService: AlumnosService, private _snackBar: MatSnackBar, private router:Router ) { 
+  constructor(private fb: FormBuilder, private breakpointObserver: BreakpointObserver, private _alumnosService: AlumnosService, private _snackBar: MatSnackBar, private router:Router ) { 
     this.formulario= this.fb.group({
       posicion: ['', Validators.required],
       nombre: ['', Validators.required],
