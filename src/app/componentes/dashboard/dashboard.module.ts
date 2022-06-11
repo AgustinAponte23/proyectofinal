@@ -8,6 +8,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { CrearAlumnoComponent } from './crear-alumno/crear-alumno.component';
 import { NavegationComponent } from './navegation/navegation.component';
 import { FooterComponent } from './footer/footer.component';
+import { DetailsComponent } from './datails/details.component';
 
 
 //? "Angular material" 
@@ -25,6 +26,8 @@ import { AumentarDirective } from '../plus/directivas/aumentar.directive';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 
 
@@ -39,6 +42,8 @@ import { MatMenuModule } from '@angular/material/menu';
     PipesPipe,
     AumentarDirective,
     FooterComponent,
+    DetailsComponent,
+
   ],
   imports: [
     CommonModule,
@@ -53,7 +58,8 @@ import { MatMenuModule } from '@angular/material/menu';
     ReactiveFormsModule,
     MatSidenavModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTabsModule
   ]
 })
 export class DashboardModule { }

@@ -19,6 +19,9 @@ const routs: Routes =[
     {
         path: 'dashboard' ,loadChildren: () => import('./componentes/dashboard/dashboard.module').then(x => x.DashboardModule)
     },
+    /*{
+        path: 'detalles-cursos' ,loadChildren: () => import('./componentes/details/details.module').then(d => d.DetailsModule)
+    },*/
     {
         path: 'dashboard-second' , component: DashboardSecondComponent
     },

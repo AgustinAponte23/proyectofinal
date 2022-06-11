@@ -38,6 +38,7 @@ import { MatListModule } from '@angular/material/list';
     InicioComponent,
     SidenavComponent,
     ToolbarComponent,
+
   ],
   imports: [
     BrowserModule,

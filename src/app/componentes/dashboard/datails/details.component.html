@@ -1,0 +1,105 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false">
+      <mat-nav-list>
+        <a routerLink="../" class="text-white" mat-list-item href="#">Inicio</a>
+        <a routerLink="../../" class="text-white" mat-list-item>Cerrar sesión</a>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <mat-toolbar color="primary" class="navbar">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon class="text-white" aria-label="Side nav toggle icon">menu_open</mat-icon>
+        </button>
+        <span class="text-white">EduTech</span>
+        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+          <mat-icon class="text-white">account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <button mat-menu-item>Mi perfil</button>
+          <button routerLink="../" mat-menu-item>Cerrar sesión</button>
+        </mat-menu>
+      </mat-toolbar>
+      <!-- "Contenido" -->
+      <mat-tab-group mat-align-tabs="center">
+
+        <!--"Detalles Angular"-->
+        <mat-tab label="Angular">
+         <div class="container">
+            <div class="content-brand text-center">
+                <img src="../../../../assets/img/2048px-Angular_full_color_logo.svg.png" alt="">
+            </div>
+            <div class="content-text text-center my-3">
+                <h3>Curso de Angular</h3>
+                <p class="content-text"><b>Duración:</b> 3 meses <br> <br>
+                    <b>Cantidad de ejercicios:</b> 5 <br> <br>
+                    <b>Requisitos:</b> Conocimientos previos de HTML, CSS y JavaScript <br> <br>
+                    <b>Perfil:</b> El egresado de este curso tendra la capacidad de desarrollar una SPA de manera eficiente. <br>
+                </p>
+            </div>
+         </div>
+        </mat-tab>
+
+        <!--"Detalles React"-->
+        <mat-tab label="React">
+            <div class="container">
+                <div class="content-brand text-center">
+                    <img src="../../../../assets/img/react.png" alt="">
+                </div>
+                <div class="content-text text-center my-3">
+                    <h3>Curso de React</h3>
+                    <p class="content-text"><b>Duración:</b> 1 mes <br> <br>
+                        <b>Cantidad de ejercicios:</b> 7 <br> <br>
+                        <b>Requisitos:</b> Conocimientos previos de HTML, CSS y JavaScript <br> <br>
+                        <b>Perfil:</b> El egresado de este curso tendra la capacidad de desarrollar una aplicación con React de manera eficiente. <br>
+                    </p>
+                </div>
+            </div>
+        </mat-tab>
+
+        <!--"Detalles Vue"-->
+        <mat-tab label="Vue">
+            <div class="container">
+                <div class="content-brand text-center">
+                    <img src="../../../../assets/img/Vue.js_Logo_2.svg.png" alt="">
+                </div>
+                <div class="content-text text-center my-3">
+                    <h3>Curso de Vue</h3>
+                    <p class="content-text"><b>Duración:</b> 8 meses <br> <br>
+                        <b>Cantidad de ejercicios:</b> 10 <br> <br>
+                        <b>Requisitos:</b> Conocimientos previos de HTML, CSS y JavaScript <br> <br>
+                        <b>Perfil:</b> El egresado de este curso tendra la capacidad de desarrollar una aplicación con Vue de manera eficiente. <br>
+                    </p>
+                </div>
+             </div>
+        </mat-tab>
+
+        <!--"Detalles git"-->
+        <mat-tab label="Git">
+            <div class="container">
+                <div class="content-brand text-center">
+                    <img src="../../../../assets/img/git.png" alt="">
+                </div>
+                <div class="content-text text-center my-3">
+                    <h3>Curso de Git</h3>
+                    <p class="content-text"><b>Duración:</b> 10 meses <br> <br>
+                        <b>Cantidad de ejercicios:</b> 9 <br> <br>
+                        <b>Requisitos:</b> Ninguno <br> <br>
+                        <b>Perfil:</b> El egresado de este curso tendra la capacidad de entender y escribir comandos de git. <br>
+                    </p>
+                </div>
+             </div>
+        </mat-tab>
+
+      </mat-tab-group>
+      <app-footer></app-footer>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

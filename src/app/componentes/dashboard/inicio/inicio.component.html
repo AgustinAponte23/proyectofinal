@@ -1,5 +1,5 @@
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z3">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z3 my-3">
      
     <!--"Posición"-->
     <ng-container matColumnDef="posicion">
@@ -25,21 +25,38 @@
       <td class="text-center" mat-cell *matCellDef="let element"> {{element.inscripcion}} </td>
     </ng-container>
 
-    <!--"Acciones"-->
+    <!--"Acciones nuevas"-->
     <ng-container matColumnDef="Acciones">
         <th mat-header-cell *matHeaderCellDef> </th>
         <td class="acciones" mat-cell *matCellDef="let element; let i = index"> 
-          <a routerLink="crear-alumno" class="cursor mx-2" matTooltip="Agregar alumno">
-            <mat-icon class="text-secondary">person_add</mat-icon>
-          </a>
-            
-          <a [routerLink]="[i, 'editar-alumno']" class="cursor mx-2"  matTooltip="Editar alumno">
-            <mat-icon class="text-primary">edit</mat-icon>
-          </a>
           
-          <a class="cursor" (click)="eliminarAlumno(i)"  matTooltip="Eliminar alumno">
-            <mat-icon class="text-danger">delete</mat-icon>
-          </a>
+
+          <button mat-icon-button matTooltip="Abrir acciones" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item >
+              <mat-icon class="text-add">person_add</mat-icon>
+              <a routerLink="crear-alumno" class="cursor mx-2 decoration text-dark">Agregar alumno</a>
+            </button>
+
+            <button mat-menu-item>
+              <mat-icon class="text-info">edit</mat-icon>
+              <a [routerLink]="[i, 'editar-alumno']" class="cursor mx-2 decoration text-dark">Editar alumno</a>
+            </button>
+
+            <button mat-menu-item>
+              <mat-icon class="text-danger">delete</mat-icon>
+              <a class="cursor decoration text-dark" (click)="eliminarAlumno(i)">Eliminar alumno</a>
+            </button>
+
+            <button mat-menu-item>
+              <mat-icon class="information">info</mat-icon>
+              <a routerLink="detalles-cursos" class="cursor mx-2 decoration text-dark">Más información</a>
+            </button>
+          </mat-menu>
+            
+          
         </td>
     </ng-container>
   

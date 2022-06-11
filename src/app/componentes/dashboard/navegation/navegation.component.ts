@@ -16,17 +16,17 @@ export class NavegationComponent /*implements OnInit, OnDestroy*/ {
   ngOnInit(): void {
     this.initInterval();
   }
-  
-  ngOnDestroy(): void {
-   this.subject$.next(value);
-   this.subject$.complete();
-  }
 
   initInterval() {
     const interval$ = interval(1000);
     interval$.pipe(
       takeUntil(this.subject$)
     ).subscribe(s => {})
+  }
+  
+  ngOnDestroy(): void {
+   this.subject$.next(value);
+   this.subject$.complete();
   }*/
 
   isHandset$: Observable<any> = this.breakpointObserver.observe(Breakpoints.Handset) //Segundo pipe async implementado
