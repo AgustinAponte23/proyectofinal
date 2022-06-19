@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
+import { GuardsGuard } from '../plus/guards/guards.guard';
 import { CrearAlumnoComponent } from './crear-alumno/crear-alumno.component';
 import { DashboardComponent } from './dashboard.component';
 import { DetailsComponent } from './datails/details.component';
@@ -21,7 +22,7 @@ const routes: Routes = [
     path: ':index/editar-alumno' , component: EditarAlumnoComponent
   },
   {
-    path: 'detalles-cursos' , component: DetailsComponent
+    path: 'detalles-cursos' , component: DetailsComponent,  canActivate: [GuardsGuard]
   }
 ]
 

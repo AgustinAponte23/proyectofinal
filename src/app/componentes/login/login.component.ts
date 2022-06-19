@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { DataService } from '../plus/servicios/data/data.service';
 
 @Component({
   selector: 'app-login',
@@ -15,12 +16,20 @@ export class LoginComponent {
     
   });
 
-  constructor(private formBuilder:FormBuilder, private _snackBar: MatSnackBar, private router:Router) { 
+  data: any = {};
 
+
+  constructor(private formBuilder:FormBuilder, private _snackBar: MatSnackBar, private router:Router, private service: DataService) { 
+    
   }
+
+   
   
   // Validaciones
   ngOnInit(): void {
+    this.service.getData().subscribe(data => {
+      this.data = data;
+    })
     this.formulario = this.formBuilder.group({
       nombre: ['' , Validators.required],
       contraseña: ['' , [Validators.required , Validators.minLength(5)]],

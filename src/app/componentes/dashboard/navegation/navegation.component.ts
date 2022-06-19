@@ -14,7 +14,10 @@ export class NavegationComponent /*implements OnInit, OnDestroy*/ {
   /*subject$ = new Subject(); //Primer pipe async
 
   ngOnInit(): void {
-    this.initInterval();
+    this.service.getData().subscribe(data =>{
+      this.data = data.results;
+    })
+    console.log(this.data);
   }
 
   initInterval() {

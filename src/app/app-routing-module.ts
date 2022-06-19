@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes,} from '@angular/router';
 import { CreateComponent } from './componentes/create/create.component';
 import { DashboardSecondComponent } from './componentes/dashboard-second/dashboard-second.component';
-import { CrearAlumnoComponent } from './componentes/dashboard/crear-alumno/crear-alumno.component';
-import { DashboardComponent } from './componentes/dashboard/dashboard.component';
 import { LoginComponent } from './componentes/login/login.component';
 
 const routs: Routes =[
@@ -14,10 +12,10 @@ const routs: Routes =[
         path: 'crear-cuenta' , component: CreateComponent
     },
     {
-        path: 'iniciar-sesion' , component: LoginComponent
+        path: 'iniciar-sesion' , component: LoginComponent 
     },
     {
-        path: 'dashboard' ,loadChildren: () => import('./componentes/dashboard/dashboard.module').then(x => x.DashboardModule)
+        path: 'dashboard' ,loadChildren: () => import('./componentes/dashboard/dashboard.module').then(x => x.DashboardModule),
     },
     /*{
         path: 'detalles-cursos' ,loadChildren: () => import('./componentes/details/details.module').then(d => d.DetailsModule)

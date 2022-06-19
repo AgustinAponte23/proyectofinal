@@ -2,11 +2,11 @@
   <div id="formContent">
 
     <!-- "Encabezado" -->
-    <div class="fadeIn first">
+    <div class="fadeIn first" *ngFor="let nombres of data">
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h1 class="text-center my-5">​ Bienvenido de nuevo✋​</h1>
+            <h1 class="text-center my-5">​ Bienvenido de nuevo {{nombres.first_name}}​</h1>
           </div>
         </div>
       </div>
@@ -36,6 +36,4 @@
     La contraseña debe tener más caracteres 
   </div>
   
-  
-    
 </div>
