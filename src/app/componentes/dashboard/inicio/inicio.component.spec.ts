@@ -19,6 +19,12 @@ describe('InicioComponent', () => {
     fixture.detectChanges();
   });
 
+  it('Commponente existente',() => {
+     const fixture = TestBed.createComponent(InicioComponent);
+     const app = fixture.componentInstance;
+     expect(app).toBeTruthy();  
+  }); // Revisar si el componente existe
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
