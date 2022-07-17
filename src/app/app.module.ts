@@ -28,6 +28,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { ROOT_REDUCERS } from './state/app.state';
 
 
 @NgModule({
@@ -59,7 +61,8 @@ import { HttpClientModule } from '@angular/common/http';
     LayoutModule,
     MatListModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot(ROOT_REDUCERS)
   ],
   providers: [],
   bootstrap: [AppComponent]

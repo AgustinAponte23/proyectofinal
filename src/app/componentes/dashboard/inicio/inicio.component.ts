@@ -4,6 +4,7 @@ import { alumnos } from '../../plus/interfaces/alumnos';
 import { AlumnosService } from '../../plus/servicios/alumnos.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
 
 
 
@@ -21,7 +22,7 @@ export class InicioComponent implements OnInit {
   dataSource!: MatTableDataSource<any>;
 
 
-  constructor(private _alumnosService: AlumnosService, private _snackBar: MatSnackBar) { //Llamar al servicio}
+  constructor(private _alumnosService: AlumnosService, private _snackBar: MatSnackBar, private store: Store) { //Llamar al servicio}
     
     /*somedata$: Observable<any>;
 
@@ -35,6 +36,7 @@ export class InicioComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarAlumnos(); // Se ejecuta primero
+    /*this.store.dispatch(agregarAlumno);*/
   }
 
   // Agregar alumno
